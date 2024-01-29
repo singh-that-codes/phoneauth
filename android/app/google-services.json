@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1011508673181",
+    "project_id": "phonesign-88f5f",
+    "storage_bucket": "phonesign-88f5f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011508673181:android:330aca8a6abe3cd927b274",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7ISBY3wVjWivbAlZsmT20rdcaKd4YKbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

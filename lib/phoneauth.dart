@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/itoscreen.dart';
 
@@ -22,15 +23,28 @@ class _PhoneAuthState extends State<PhoneAuth> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: TextField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       hintText: 'Enter phone no.',
                       suffixIcon: Icon(Icons.phone)),
                   controller: phoneController,
                   keyboardType: TextInputType.phone),
             ),
             ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/otp');
+                onPressed: () async {
+                  await FirebaseAuth.instance.verifyPhoneNumber(
+                      verificationCompleted:
+                          (PhoneAuthCredential Credential) {},
+                      verificationFailed: (FirebaseAuthException ex) {},
+                      codeSent: (String verificationId, int? resendToken) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => OtpScreen(
+                                      verificationId: verificationId,
+                                    )));
+                      },
+                      codeAutoRetrievalTimeout: (String verificationId) {},
+                      phoneNumber: phoneController.text.toString());
                 },
                 child: Text("Send OTP")),
           ],
